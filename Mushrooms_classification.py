@@ -1,14 +1,11 @@
 #------------------------------------------------------------------------------
-#---ML Project - Yossi Gausman - Metro College---------------------------------
+#--- Mushrooms Classification--------------------------------------------------
 #------------------------------------------------------------------------------
-#--- Mushroom Classification---------------------------------------------------
-#------------------------------------------------------------------------------
-
 import os
-os.chdir(r'/Users/yossigausman/Desktop/DSA/Machine Learing/Working Directory')
+os.chdir(...)
 os.getcwd()
 
-#---Loading data---------------------------------------------------------------
+#---Data Loading---------------------------------------------------------------
 import pandas as pd
 
 df = pd.read_csv("mushrooms.csv", na_values='NA')
@@ -20,14 +17,12 @@ df.shape
 df.groupby('odor').size()
 
 #---Data encoding--------------------------------------------------------------
-
 from sklearn.preprocessing import LabelEncoder
 labelEncoder = LabelEncoder()
 for col in df.columns:
     df[col] = labelEncoder.fit_transform(df[col])
 
 #---Correlation of the all variables to veriable "habitat"---------------------
-
 correlation = df.corr()
 correlation['odor'].sort_values(ascending=False)
 
@@ -155,6 +150,5 @@ GS.fit(X_train,y_train)
 
 GS.best_params_
 GS.best_score_
-
 
 #---End------------------------------------------------------------------------
